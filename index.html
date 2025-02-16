@@ -306,17 +306,18 @@
     <div class="post-info">
       <div class="post-meta">
         <span><span class="icon-calendar"></span>2025-02-15</span>
-        <span><span class="icon-pencil"></span>93 字</span>
+        <span><span class="icon-pencil"></span>221 字</span>
         <span><span class="icon-clock"></span>1 分钟</span>
       </div>
       <h2 class="post-title">stata常用命令（持续更新ing...）</h2>
       <article class="post-article">
         
-          数据处理拆分与合并.execute&amp;#125;1split var, parse(; ) //以分号为例
+          数据处理拆分与合并1split var, parse(; ) //以分号为例
 可以将变量按照分号拆分，如果需要合并不需要使用append，使用gather即可
-.execute&amp;#125;12345例：split 姓名, parse(; ) net install tidy, from (&amp;quot;http://fmwww.bc.edu/RePEc/bocode/t&amp;quot;) //必备前置下载drop 姓名gather 姓名*
-便可以将不同姓名拆分后合并
-
+12345例：split 姓名, parse(; ) net install tidy, from (&amp;quot;http://fmwww.bc.edu/RePEc/bocode/t&amp;quot;) //必备前置下载drop 姓名gather 姓名*
+便可以将不同姓名拆分后合并。
+标签标签的赋予使用某一行为变量名赋予标签
+1234foreach var of varlist _all &amp;#123;    local label = `va
         
       </article>
     </div>
@@ -382,7 +383,7 @@ Run server1$ hexo ser
     
       <div>
         <span class="icon-brush"></span>
-        551
+        679
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
         00:03
