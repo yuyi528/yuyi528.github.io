@@ -17,7 +17,7 @@
   <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_0khxww3tj3q9';window.REIMU_CONFIG.clipboard_tips = {"success":{"en":"Copy successfully (*^▽^*)","zh-CN":"复制成功 (*^▽^*)","zh-TW":"複製成功 (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"en":"Copy failed (ﾟ⊿ﾟ)ﾂ","zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","zh-TW":"複製失敗 (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://yuyi528.github.io';</script>
   
   <title>
-    Hello World |
+    stata常用操作 |
     
     Yi Yu&#39;s Blog
   </title>
@@ -35,16 +35,17 @@
 
   
   
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation to learn how to use.">
+    <meta name="description" content="最近给一些同学讲stata常用操作，写了一段代码总结了我之前常用的命令，也在博客上发一下吧，如果有误可以私信或者留言。   Stata 常用操作指南   一、工作环境设置与数据准备  日志管理 123456789* 关闭之前可能存在的日志capture log close * 创建文本格式的新日志（替换旧日志）log using &quot;工作目录\teach0530.log&quot;, r">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://yuyi528.github.io/2013/12/24/hello-world/index.html">
+<meta property="og:title" content="stata常用操作">
+<meta property="og:url" content="https://yuyi528.github.io/2025/07/02/stata%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/index.html">
 <meta property="og:site_name" content="Yi Yu&#39;s Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation to learn how to use.">
+<meta property="og:description" content="最近给一些同学讲stata常用操作，写了一段代码总结了我之前常用的命令，也在博客上发一下吧，如果有误可以私信或者留言。   Stata 常用操作指南   一、工作环境设置与数据准备  日志管理 123456789* 关闭之前可能存在的日志capture log close * 创建文本格式的新日志（替换旧日志）log using &quot;工作目录\teach0530.log&quot;, r">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2013-12-24T09:49:32.000Z">
-<meta property="article:modified_time" content="2025-06-30T05:03:08.798Z">
+<meta property="article:published_time" content="2025-07-02T03:09:21.000Z">
+<meta property="article:modified_time" content="2025-07-02T03:17:31.558Z">
 <meta property="article:author" content="Yi Yu">
+<meta property="article:tag" content="stata 数据处理">
 <meta name="twitter:card" content="summary">
   
   
@@ -203,7 +204,7 @@
           
         </picture>
         
-          <img  fetchpriority="high" src="/images/banner.webp" alt="Hello World">
+          <img  fetchpriority="high" src="/images/banner.webp" alt="stata常用操作">
         
       
     
@@ -214,7 +215,7 @@
         
         
           <a href="/" id="logo">
-            <h1 data-aos="slide-up">Hello World</h1>
+            <h1 data-aos="slide-up">stata常用操作</h1>
           </a>
         
       
@@ -241,7 +242,7 @@
   <h3 class="toc-title">文章目录</h3>
   <div class="sidebar-toc-wrapper toc-div-class" >
       
-        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#stata-%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97"><span class="toc-number">1.</span> <span class="toc-text"> Stata 常用操作指南</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E5%B7%A5%E4%BD%9C%E7%8E%AF%E5%A2%83%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87"><span class="toc-number">1.1.</span> <span class="toc-text"> 一、工作环境设置与数据准备</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86"><span class="toc-number">1.1.1.</span> <span class="toc-text"> 日志管理</span></a></li></ol></li></ol></li></ol>
       
   </div>
 </div>
@@ -262,7 +263,7 @@
   </div>
   <div class="sidebar-state-tag">
     <div>标签</div>
-    <div class="sidebar-state-number">1</div>
+    <div class="sidebar-state-number">2</div>
   </div>
 </div>
 <div class="sidebar-social">
@@ -341,13 +342,13 @@
   
 </aside>
 
-          <section id="main"><article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+          <section id="main"><article id="post-stata常用操作" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner" data-aos="fade-up">
     <div class="article-meta">
       <div class="article-date">
   <span class="article-date-link" data-aos="zoom-in">
-    <time datetime="2013-12-24T09:49:32.000Z" itemprop="datePublished">2013-12-24</time>
-    <time style="display: none;" id="post-update-time">2025-06-30</time>
+    <time datetime="2025-07-02T03:09:21.000Z" itemprop="datePublished">2025-07-02</time>
+    <time style="display: none;" id="post-update-time">2025-07-02</time>
   </span>
 </div>
 
@@ -360,7 +361,262 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="http://zespia.tw/hexo">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="http://zespia.tw/hexo/docs">documentation</a> to learn how to use.</p>
+        <blockquote>
+<p>最近给一些同学讲stata常用操作，写了一段代码总结了我之前常用的命令，也在博客上发一下吧，如果有误可以私信或者留言。</p>
+</blockquote>
+<h1 id="stata-常用操作指南"><a class="markdownIt-Anchor" href="#stata-常用操作指南"></a> Stata 常用操作指南</h1>
+<hr />
+<h2 id="一-工作环境设置与数据准备"><a class="markdownIt-Anchor" href="#一-工作环境设置与数据准备"></a> 一、工作环境设置与数据准备</h2>
+<h3 id="日志管理"><a class="markdownIt-Anchor" href="#日志管理"></a> 日志管理</h3>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">* 关闭之前可能存在的日志</span></span><br><span class="line"><span class="keyword">capture</span> <span class="keyword">log</span> <span class="keyword">close</span> </span><br><span class="line"></span><br><span class="line"><span class="comment">* 创建文本格式的新日志（替换旧日志）</span></span><br><span class="line"><span class="keyword">log</span> using <span class="string">&quot;工作目录\teach0530.log&quot;</span>, <span class="keyword">replace</span> text</span><br><span class="line">````</span><br><span class="line"></span><br><span class="line">### 工作目录与示例数据</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>设置工作路径<br />
+cd “工作目录”</p>
+</li>
+<li>
+<p>导入内置数据集并创建日期变量<br />
+sysuse nlsw88, clear  // 载入美国女性劳动力数据</p>
+</li>
+<li>
+<p>生成随机日期变量（2010-2020年间）<br />
+generate year = floor(2010 + runiform()*(2020-2010+1))<br />
+generate month = floor(1 + runiform()*12)<br />
+generate day = floor(1 + runiform()*28)<br />
+generate date_num = mdy(month, day, year)<br />
+generate date_str = string(date_num, “%tdCCYY-NN-DD”)</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## 二、数据基本操作</span><br><span class="line"></span><br><span class="line">### 变量创建与修改</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>创建序号变量<br />
+generate n_id = _n      // 行号<br />
+gen N_id = _N           // 总样本量</p>
+</li>
+<li>
+<p>替换并重命名变量<br />
+replace n_id = N_id if n_id != N_id<br />
+drop N_id<br />
+ren n_id N_id</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 数据类型转换</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>数值与字符串互相转换<br />
+tostring N_id, replace    // 数值→字符串<br />
+destring N_id, replace    // 字符串→数值</p>
+</li>
+<li>
+<p>标签值转换<br />
+decode N_id, generate(N_id_str)  // 带标签数值→字符串<br />
+encode N_id_str, generate(N_id_num)  // 字符串→带标签数值</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 数据查看技巧</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>浏览与筛选数据<br />
+browse                              // 交互式浏览<br />
+list if year &lt;= 2015                // 条件筛选<br />
+list year if inlist(idcode, 1,2,3)  // 特定ID取值<br />
+list year if inrange(idcode, 1,3)   // 范围筛选</p>
+</li>
+<li>
+<p>缺失值处理<br />
+list if union == .      // 查找缺失值<br />
+misstable summarize     // 缺失值统计<br />
+drop if mi(union)       // 删除缺失值</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 异常值处理</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>Winsorize 缩尾处理（需安装 winsor2）<br />
+ssc install winsor2    // 安装命令</p>
+</li>
+<li>
+<p>方法1：生成新变量<br />
+winsor2 wage, cuts(1 99) gen(wage_w)</p>
+</li>
+<li>
+<p>方法2：替换原变量<br />
+winsor2 wage, replace cuts(1 99)</p>
+</li>
+<li>
+<p>方法3：截断处理（删除异常值）<br />
+winsor2 wage, replace cuts(1 99) trim</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 统计描述方法</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>count if year &lt;= 2015         // 条件计数<br />
+describe                      // 数据结构<br />
+summarize                     // 全变量概览<br />
+tabulate year                 // 频数分布<br />
+tabulate year, missing        // 含缺失值的频数<br />
+tabulate year, summarize(wage)    // 分组统计<br />
+tabulate year, summarize(wage) means  // 分组均值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## 三、分组统计技巧</span><br><span class="line"></span><br><span class="line">### 分组计算（by vs bysort）</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<ol>
+<li>by前缀操作（需先排序）<br />
+sort year<br />
+by year: gen wage_sum = sum(wage)  // 工资累计求和</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>bysort组合命令（推荐）<br />
+bysort year: egen total_wage = total(wage)    // 工资年度总和<br />
+bysort year: egen min_wage = min(wage)        // 年度最低工资<br />
+bysort year: egen mean_wage = mean(wage)      // 年度平均工资</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 数据去重方法</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>方法1：duplicates命令<br />
+duplicates list year       // 列出重复值<br />
+duplicates drop year, force // 强制删除重复值</p>
+</li>
+<li>
+<p>方法2：分组标记法（可保留特定记录）<br />
+bysort year: gen dup = _n  // 生成组内序号<br />
+keep if dup == 1           // 保留每组第一条<br />
+drop dup</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 数据汇总（collapse）</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>快速生成分组统计量<br />
+collapse (count) wage_count = wage  // 计数<br />
+(sum)  wage_sum = wage     // 总和<br />
+(mean) wage_mean = wage    // 均值<br />
+(min)  wage_min = wage     // 最小值<br />
+(max)  wage_max = wage,    // 最大值<br />
+by(year)<br />
+save collapse_data, replace</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## 四、编程自动化技巧</span><br><span class="line"></span><br><span class="line">### 循环操作</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<ol>
+<li>foreach：遍历变量列表<br />
+foreach var of varlist wage year {<br />
+summarize <code>var'  // 遍历分析 if &quot;</code>var’&quot; == “wage” continue  // 条件跳过<br />
+}</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>forvalues：遍历数字序列<br />
+forvalues i = 1/10 {<br />
+display &quot;Loop: <code>i'&quot; if </code>i’ == 5 continue  // 跳过第5次循环<br />
+}</li>
+</ol>
+</li>
+<li>
+<p>带步长的循环<br />
+forvalues i = 1(2)10 {<br />
+display “Step loop: `i’”<br />
+}</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 宏应用（局部与全局）</span><br><span class="line"></span><br><span class="line">宏有两种类型，一种是局部宏，另一种是全局宏</span><br><span class="line">局部宏和全局宏的区别在于作用范围，局部宏只能在当前do文件或命令窗口中使用，全局宏可以在整个stata会话中使用</span><br><span class="line">局部宏和全局宏的使用场景不同，局部宏适用于临时变量，全局宏适用于全局变量</span><br><span class="line">局部宏和全局宏的使用方法也不同，局部宏使用\`宏名&#x27;，全局宏使用  $宏名</span><br><span class="line"></span><br><span class="line">局部宏是局限于当前do文件或命令窗口的宏，使用local命令定义</span><br><span class="line">全局宏是全局范围内的宏，使用global命令定义</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>局部宏（推荐）<br />
+local work_dir “D:/StataProject”<br />
+use “`work_dir’/data.dta”, clear</p>
+</li>
+<li>
+<p>全局宏（慎用）<br />
+global work_dir “D:/StataProject”<br />
+use “$work_dir/data.dta”, clear</p>
+</li>
+<li>
+<p>循环保存/读取示例<br />
+forvalues i = 1/10 {<br />
+local fname “data_<code>i'.dta&quot;   save &quot;</code>work_dir’/<code>fname'&quot;, replace   use &quot;</code>work_dir’/`fname’”, clear<br />
+summarize<br />
+}</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 数据合并</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<ol>
+<li>append：纵向追加<br />
+use “part1.dta”, clear<br />
+forvalues i = 2/4 {<br />
+append using “part`i’.dta”<br />
+}</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>merge：横向合并</li>
+</ol>
+</li>
+<li>
+<p>准备合并数据<br />
+preserve<br />
+keep year<br />
+gen set = 1<br />
+save merge_data.dta, replace<br />
+restore</p>
+</li>
+<li>
+<p>执行1:1合并<br />
+merge 1:1 year using merge_data.dta<br />
+keep if _merge == 3  // 保留匹配成功的记录<br />
+drop _merge          // 删除合并标记</p>
+</li>
+<li>
+<p>精简写法<br />
+merge 1:1 year using merge_data.dta, keep(3) nogen</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## 五、字符串与日期处理</span><br><span class="line"></span><br><span class="line">### 字符串操作</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>生成文本日期变量<br />
+generate date_str = string(date_num, “%tdCCYY-NN-DD”)</p>
+</li>
+<li>
+<p>解码分类变量<br />
+decode industry, gen(industry_str)</p>
+</li>
+<li>
+<p>字符串分割<br />
+split industry_str, parse(/) gen(industry_part)</p>
+</li>
+<li>
+<p>子字符串提取<br />
+gen year_part = real(substr(date_str, 1, 4))   // 提取年份<br />
+gen set2_part = substr(“切割文本”, 1, 3)       // 注意中文字符占3字节</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 宽长数据转换</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>宽→长转换<br />
+reshape long industry_part, i(idcode) j(part_num) string<br />
+keep if !mi(industry_part)  // 删除空值</p>
+</li>
+<li>
+<p>长→宽转换<br />
+reshape wide industry_part, i(idcode) j(part_num) string</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 结束日志</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>log close  // 关闭日志文件</p>
+<pre><code>
+---
+如果有哪里写错了麻烦留言，我会修改的！Σ(ﾟДﾟ；≡；ﾟдﾟ)</code></pre>
 
       
     </div>
@@ -369,8 +625,8 @@
       
       
       
-        <a data-aos="zoom-in" href="/2013/12/24/hello-world/#comments" class="article-comment-link">
-          <span class="post-comments-count valine-comment-count" data-xid="/2013/12/24/hello-world/" itemprop="commentCount"></span>
+        <a data-aos="zoom-in" href="/2025/07/02/stata%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/#comments" class="article-comment-link">
+          <span class="post-comments-count valine-comment-count" data-xid="/2025/07/02/stata%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/" itemprop="commentCount"></span>
           留言
         </a>
       
@@ -379,29 +635,31 @@
       
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/stata-%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/" rel="tag">stata 数据处理</a></li></ul>
+
 
     </footer>
   </div>
   
   <nav id="article-nav" data-aos="fade-up">
     
-      
-      <div class="article-nav-link-wrap article-nav-link-left">
-        
-          
-          
-            <img data-src="/covers/1.jpg" data-sizes="auto" alt="第一篇文章.0630" class="lazyload">
-          
-        
-        <a href="/2025/06/30/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A00630/"></a>
-        <div class="article-nav-caption">前一篇</div>
-        <h3 class="article-nav-title">
-          
-            第一篇文章.0630
-          
-        </h3>
-      </div>
     
+    
+    <div class="article-nav-link-wrap article-nav-link-right">
+      
+        
+        
+          <img data-src="/covers/128919932_p0.png" data-sizes="auto" alt="第一篇文章.0630" class="lazyload">
+        
+      
+      <a href="/2025/06/30/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A00630/"></a>
+      <div class="article-nav-caption">后一篇</div>
+      <h3 class="article-nav-title">
+        
+          第一篇文章.0630
+        
+      </h3>
+    </div>
     
   </nav>
 
@@ -470,10 +728,10 @@
     
       <div>
         <span class="icon-brush"></span>
-        146
+        1.4k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        00:02
+        00:06
       </div>
     
     
@@ -506,7 +764,7 @@
   <h3 class="toc-title">文章目录</h3>
   <div class="sidebar-toc-wrapper toc-div-class" >
       
-        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#stata-%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97"><span class="toc-number">1.</span> <span class="toc-text"> Stata 常用操作指南</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E5%B7%A5%E4%BD%9C%E7%8E%AF%E5%A2%83%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87"><span class="toc-number">1.1.</span> <span class="toc-text"> 一、工作环境设置与数据准备</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86"><span class="toc-number">1.1.1.</span> <span class="toc-text"> 日志管理</span></a></li></ol></li></ol></li></ol>
       
   </div>
 </div>
@@ -527,7 +785,7 @@
   </div>
   <div class="sidebar-state-tag">
     <div>标签</div>
-    <div class="sidebar-state-number">1</div>
+    <div class="sidebar-state-number">2</div>
   </div>
 </div>
 <div class="sidebar-social">
@@ -715,13 +973,13 @@
       <script data-pjax>
         window.REIMU_POST = {
           author: "Yi Yu",
-          title: "Hello World",
-          url: "https://yuyi528.github.io/2013/12/24/hello-world/",
+          title: "stata常用操作",
+          url: "https://yuyi528.github.io/2025/07/02/stata%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/",
           excerpt: "",
           description: "",
-          stripContent: "Welcome to Hexo! This is your very first post. Check documentation to learn how to use. ",
-          date: "Tue Dec 24 2013 17:49:32 GMT+0800",
-          updated: "Mon Jun 30 2025 13:03:08 GMT+0800",
+          stripContent: " 最近给一些同学讲stata常用操作，写了一段代码总结了我之前常用的命令，也在博客上发一下吧，如果有误可以私信或者留言。   Stata 常用操作指南   一、工作环境设置与数据准备  日志管理 123456789* 关闭之前可能存在的日志capture log close * 创建文本格式的新日志（替换旧日志）log using &amp;quot;工作目录\teach0530.log&amp;quot;, replace text````### 工作目录与示例数据   设置工作路径 cd “工作目录”   ",
+          date: "Wed Jul 02 2025 11:09:21 GMT+0800",
+          updated: "Wed Jul 02 2025 11:17:31 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
@@ -881,7 +1139,7 @@
               envId: '',
               region: '',
               urls: [
-                '/about/index.html'
+                '/friend/index.html'
               ],
               includeReply: false
             }).then((res) => {
