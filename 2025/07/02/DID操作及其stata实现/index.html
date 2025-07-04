@@ -17,7 +17,7 @@
   <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_0khxww3tj3q9';window.REIMU_CONFIG.clipboard_tips = {"success":{"en":"Copy successfully (*^▽^*)","zh-CN":"复制成功 (*^▽^*)","zh-TW":"複製成功 (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"en":"Copy failed (ﾟ⊿ﾟ)ﾂ","zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","zh-TW":"複製失敗 (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://yuyi528.github.io';</script>
   
   <title>
-    第一篇文章.0630 |
+    DID操作及其stata实现 |
     
     Yi Yu&#39;s Blog
   </title>
@@ -35,17 +35,18 @@
 
   
   
-    <meta name="description" content="个人与博客内容 主要会分享一些自己感兴趣的东西以及学习笔记，本人是经济学专业本科学生，所以应该主要分享经济学以及数据处理相关内容；是个二次元，可能会分享一些二次元内容；喜欢音乐和绘画，但是没什么艺术细胞，也可以推荐一些歌曲，反正主要是自己创着玩，怎么开心怎么来。 暂时没啥别的想说的了">
+    <meta name="description" content="本文正在更新中，因为本人还有很多地方不会 ｡ﾟ(ﾟ´ω&#96;ﾟ)ﾟ｡   一、标准模型介绍  1. 介绍 双重差分法（difference-in-differences model）是一种常用于评估政策效应的一种模型，双重差分，简单而言就是差分两次。 例如，当我们研究国家针对部分省份出台了一项新政策时，如果我们想要评估政策的效应，我们可以将受政策影响的省份设为treat组，未被政策影响的省份则是co">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第一篇文章.0630">
-<meta property="og:url" content="https://yuyi528.github.io/2025/06/30/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A00630/index.html">
+<meta property="og:title" content="DID操作及其stata实现">
+<meta property="og:url" content="https://yuyi528.github.io/2025/07/02/DID%E6%93%8D%E4%BD%9C%E5%8F%8A%E5%85%B6stata%E5%AE%9E%E7%8E%B0/index.html">
 <meta property="og:site_name" content="Yi Yu&#39;s Blog">
-<meta property="og:description" content="个人与博客内容 主要会分享一些自己感兴趣的东西以及学习笔记，本人是经济学专业本科学生，所以应该主要分享经济学以及数据处理相关内容；是个二次元，可能会分享一些二次元内容；喜欢音乐和绘画，但是没什么艺术细胞，也可以推荐一些歌曲，反正主要是自己创着玩，怎么开心怎么来。 暂时没啥别的想说的了">
+<meta property="og:description" content="本文正在更新中，因为本人还有很多地方不会 ｡ﾟ(ﾟ´ω&#96;ﾟ)ﾟ｡   一、标准模型介绍  1. 介绍 双重差分法（difference-in-differences model）是一种常用于评估政策效应的一种模型，双重差分，简单而言就是差分两次。 例如，当我们研究国家针对部分省份出台了一项新政策时，如果我们想要评估政策的效应，我们可以将受政策影响的省份设为treat组，未被政策影响的省份则是co">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-06-30T13:43:32.000Z">
-<meta property="article:modified_time" content="2025-06-30T14:00:37.432Z">
+<meta property="article:published_time" content="2025-07-02T04:03:30.000Z">
+<meta property="article:modified_time" content="2025-07-04T06:12:34.673Z">
 <meta property="article:author" content="Yi Yu">
-<meta property="article:tag" content="足迹">
+<meta property="article:tag" content="stata">
+<meta property="article:tag" content="计量经济学">
 <meta name="twitter:card" content="summary">
   
   
@@ -204,7 +205,7 @@
           
         </picture>
         
-          <img  fetchpriority="high" src="/images/banner.webp" alt="第一篇文章.0630">
+          <img  fetchpriority="high" src="/images/banner.webp" alt="DID操作及其stata实现">
         
       
     
@@ -215,7 +216,7 @@
         
         
           <a href="/" id="logo">
-            <h1 data-aos="slide-up">第一篇文章.0630</h1>
+            <h1 data-aos="slide-up">DID操作及其stata实现</h1>
           </a>
         
       
@@ -242,7 +243,7 @@
   <h3 class="toc-title">文章目录</h3>
   <div class="sidebar-toc-wrapper toc-div-class" >
       
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AA%E4%BA%BA%E4%B8%8E%E5%8D%9A%E5%AE%A2%E5%86%85%E5%AE%B9"><span class="toc-number">1.</span> <span class="toc-text"> 个人与博客内容</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E6%A0%87%E5%87%86%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text"> 一、标准模型介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.</span> <span class="toc-text"> 1. 介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%A0%87%E5%87%86%E6%A8%A1%E5%9E%8B%E8%AE%BE%E5%AE%9A"><span class="toc-number">1.2.</span> <span class="toc-text"> 2. 标准模型设定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-stata%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.3.</span> <span class="toc-text"> 3. stata代码实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E6%A8%A1%E5%9E%8B%E6%89%A9%E5%B1%95%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text"> 二、模型扩展类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E9%9D%A2%E6%9D%BF%E5%9B%BA%E5%AE%9A%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.1.</span> <span class="toc-text"> 1. 面板固定模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%A4%9A%E6%9C%9Fdid%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.2.</span> <span class="toc-text"> 2. 多期DID模型</span></a></li></ol></li></ol>
       
   </div>
 </div>
@@ -342,13 +343,13 @@
   
 </aside>
 
-          <section id="main"><article id="post-第一篇文章0630" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+          <section id="main"><article id="post-DID操作及其stata实现" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner" data-aos="fade-up">
     <div class="article-meta">
       <div class="article-date">
   <span class="article-date-link" data-aos="zoom-in">
-    <time datetime="2025-06-30T13:43:32.000Z" itemprop="datePublished">2025-06-30</time>
-    <time style="display: none;" id="post-update-time">2025-06-30</time>
+    <time datetime="2025-07-02T04:03:30.000Z" itemprop="datePublished">2025-07-02</time>
+    <time style="display: none;" id="post-update-time">2025-07-04</time>
   </span>
 </div>
 
@@ -361,9 +362,33 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
       
-        <h2 id="个人与博客内容"><a class="markdownIt-Anchor" href="#个人与博客内容"></a> 个人与博客内容</h2>
-<p>主要会分享一些自己感兴趣的东西以及学习笔记，本人是经济学专业本科学生，所以应该主要分享经济学以及数据处理相关内容；是个二次元，可能会分享一些二次元内容；喜欢音乐和绘画，但是没什么艺术细胞，也可以推荐一些歌曲，反正主要是自己创着玩，怎么开心怎么来。</p>
-<p>暂时没啥别的想说的了</p>
+        <blockquote>
+<p>本文正在更新中，因为本人还有很多地方不会 ｡ﾟ(ﾟ´ω`ﾟ)ﾟ｡</p>
+</blockquote>
+<h2 id="一-标准模型介绍"><a class="markdownIt-Anchor" href="#一-标准模型介绍"></a> 一、标准模型介绍</h2>
+<h3 id="1-介绍"><a class="markdownIt-Anchor" href="#1-介绍"></a> 1. 介绍</h3>
+<p>双重差分法（difference-in-differences model）是一种常用于评估政策效应的一种模型，双重差分，简单而言就是差分两次。<br />
+例如，当我们研究国家针对部分省份出台了一项新政策时，如果我们想要评估政策的效应，我们可以将受政策影响的省份设为treat组，未被政策影响的省份则是control组，利用虚拟变量表示则是，当trea=1时，为被影响省份，treat=0，为未被影响省份。<br />
+第一次差分就是受影响之前treat组与control的固定差，<br />
+第二次差分就是treat组受影响后的数值与control组受影响之后的数值差，用这个差减去第一次差分，从而得到净效用<br />
+（还没搞明白文内如何插入图片，所以形容的可能比较抽象，等我搞明白之后补上(☍﹏⁰。)）<br />
+相较于不寻找对照组，我们可以更好的确定有多少影响来自于政策，剔除城市自身的本来就会存在的变化。</p>
+<h3 id="2-标准模型设定"><a class="markdownIt-Anchor" href="#2-标准模型设定"></a> 2. 标准模型设定</h3>
+<p>$$y_i&#x3D;\alpha_0 + \alpha_1 \cdot post_t + \alpha_2 \cdot treat_t +\alpha_3 post_t \cdot treat_i + \varepsilon_{it} 
+$$</p><p>这是一个标准的DID模型介绍，在上个例子中，<br />
+treat=1:受影响省份，否则为0<br />
+post=1:政策时点后，否则为0</p>
+<h3 id="3-stata代码实现"><a class="markdownIt-Anchor" href="#3-stata代码实现"></a> 3. stata代码实现</h3>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reghdfe y post_treat treat <span class="keyword">post</span>,noabsorb</span><br></pre></td></tr></table></figure>
+<h2 id="二-模型扩展类型"><a class="markdownIt-Anchor" href="#二-模型扩展类型"></a> 二、模型扩展类型</h2>
+<h3 id="1-面板固定模型"><a class="markdownIt-Anchor" href="#1-面板固定模型"></a> 1. 面板固定模型</h3>
+<p>引入个体固定效应与时间固定效应来更好地反映个体与时间特征</p>
+<p>$$y_i&#x3D;\alpha_0 +\beta\cdot post_t \cdot treat_i +\mu_i +\eta_t + \varepsilon_{it} 
+$$</p><p>其中，$\mu_i$是个体固定效应，$\eta_t$为时间固定效应<br />
+固定效应可以更精确的反映两个维度上的特征。</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reghdfe y post_treat, absorb(id,year)</span><br></pre></td></tr></table></figure>
+<h3 id="2-多期did模型"><a class="markdownIt-Anchor" href="#2-多期did模型"></a> 2. 多期DID模型</h3>
+<p>标准DID假设政策影响是几乎同时的，但是实际生活中政策时点可能不同，所以我们需要考虑多期DID模型。</p>
 
       
     </div>
@@ -372,8 +397,8 @@
       
       
       
-        <a data-aos="zoom-in" href="/2025/06/30/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A00630/#comments" class="article-comment-link">
-          <span class="post-comments-count valine-comment-count" data-xid="/2025/06/30/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A00630/" itemprop="commentCount"></span>
+        <a data-aos="zoom-in" href="/2025/07/02/DID%E6%93%8D%E4%BD%9C%E5%8F%8A%E5%85%B6stata%E5%AE%9E%E7%8E%B0/#comments" class="article-comment-link">
+          <span class="post-comments-count valine-comment-count" data-xid="/2025/07/02/DID%E6%93%8D%E4%BD%9C%E5%8F%8A%E5%85%B6stata%E5%AE%9E%E7%8E%B0/" itemprop="commentCount"></span>
           留言
         </a>
       
@@ -382,7 +407,7 @@
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/%E8%B6%B3%E8%BF%B9/" rel="tag">足迹</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/stata/" rel="tag">stata</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/" rel="tag">计量经济学</a></li></ul>
 
 
     </footer>
@@ -390,23 +415,23 @@
   
   <nav id="article-nav" data-aos="fade-up">
     
-      
-      <div class="article-nav-link-wrap article-nav-link-left">
-        
-          
-          
-            <img data-src="/covers/2.jpg" data-sizes="auto" alt="stata常用操作" class="lazyload">
-          
-        
-        <a href="/2025/07/02/stata%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/"></a>
-        <div class="article-nav-caption">前一篇</div>
-        <h3 class="article-nav-title">
-          
-            stata常用操作
-          
-        </h3>
-      </div>
     
+    
+    <div class="article-nav-link-wrap article-nav-link-right">
+      
+        
+        
+          <img data-src="/covers/125101761_p0_master1200.jpg" data-sizes="auto" alt="stata常用操作" class="lazyload">
+        
+      
+      <a href="/2025/07/02/stata%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/"></a>
+      <div class="article-nav-caption">后一篇</div>
+      <h3 class="article-nav-title">
+        
+          stata常用操作
+        
+      </h3>
+    </div>
     
   </nav>
 
@@ -511,7 +536,7 @@
   <h3 class="toc-title">文章目录</h3>
   <div class="sidebar-toc-wrapper toc-div-class" >
       
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AA%E4%BA%BA%E4%B8%8E%E5%8D%9A%E5%AE%A2%E5%86%85%E5%AE%B9"><span class="toc-number">1.</span> <span class="toc-text"> 个人与博客内容</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E6%A0%87%E5%87%86%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text"> 一、标准模型介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.</span> <span class="toc-text"> 1. 介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%A0%87%E5%87%86%E6%A8%A1%E5%9E%8B%E8%AE%BE%E5%AE%9A"><span class="toc-number">1.2.</span> <span class="toc-text"> 2. 标准模型设定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-stata%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.3.</span> <span class="toc-text"> 3. stata代码实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E6%A8%A1%E5%9E%8B%E6%89%A9%E5%B1%95%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text"> 二、模型扩展类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E9%9D%A2%E6%9D%BF%E5%9B%BA%E5%AE%9A%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.1.</span> <span class="toc-text"> 1. 面板固定模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%A4%9A%E6%9C%9Fdid%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.2.</span> <span class="toc-text"> 2. 多期DID模型</span></a></li></ol></li></ol>
       
   </div>
 </div>
@@ -720,13 +745,13 @@
       <script data-pjax>
         window.REIMU_POST = {
           author: "Yi Yu",
-          title: "第一篇文章.0630",
-          url: "https://yuyi528.github.io/2025/06/30/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A00630/",
+          title: "DID操作及其stata实现",
+          url: "https://yuyi528.github.io/2025/07/02/DID%E6%93%8D%E4%BD%9C%E5%8F%8A%E5%85%B6stata%E5%AE%9E%E7%8E%B0/",
           excerpt: "",
           description: "",
-          stripContent: " 个人与博客内容 主要会分享一些自己感兴趣的东西以及学习笔记，本人是经济学专业本科学生，所以应该主要分享经济学以及数据处理相关内容；是个二次元，可能会分享一些二次元内容；喜欢音乐和绘画，但是没什么艺术细胞，也可以推荐一些歌曲，反正主要是自己创着玩，怎么开心怎么来。 暂时没啥别的想说的了 ",
-          date: "Mon Jun 30 2025 21:43:32 GMT+0800",
-          updated: "Mon Jun 30 2025 22:00:37 GMT+0800",
+          stripContent: " 本文正在更新中，因为本人还有很多地方不会 ｡ﾟ(ﾟ´ω`ﾟ)ﾟ｡   一、标准模型介绍  1. 介绍 双重差分法（difference-in-differences model）是一种常用于评估政策效应的一种模型，双重差分，简单而言就是差分两次。 例如，当我们研究国家针对部分省份出台了一项新政策时，如果我们想要评估政策的效应，我们可以将受政策影响的省份设为treat组，未被政策影响的省份则是control组，利用虚拟变量表示则是，当trea=1时，为被影响省份，treat=0，为未被影响省份。",
+          date: "Wed Jul 02 2025 12:03:30 GMT+0800",
+          updated: "Fri Jul 04 2025 14:12:34 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
